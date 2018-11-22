@@ -49,42 +49,77 @@ users = {
       {
         :name => "monty",
         :species => "snake"
-      }
+      },
+      { :name => "Dodger",
+        :species => "Dog"}
     ]
   }
 }
 
 # 1. Get Jonathan's Twitter handle (i.e. the string `"jonnyt"`)
-p users[:twitter]
+p users[:Johnathan][:twitter]
 
 # 2. Get Erik's hometown
-p user[:"Erik"[:home_town]
+p users["Erik"[:home_town]
 
 # 3. Get the array of Erik's lottery numbers
-p user[:"Erik"][:lottery_numbers]
+p users["Erik"][:lottery_numbers]
 
 # 4. Get the type of Avril's pet Monty
-p user[:"Avril"][:pets][:species]
+p users["Avril"][:pets][0][:species]
 
 # 5. Get the smallest of Erik's lottery numbers
-p user[:"Erik"][:lottery_numbers].sort![1]
+p users["Erik"][:lottery_numbers].min
 
 # 6. Return an array of Avril's lottery numbers that are even
-p user[:"Avril"][:lottery_numbers].even?
+result = []
+for number in users["Avril"][:lottery_numbers]
+  result << number if number.even?
+end
+p result
+# another option
+def evil_even_numbers(array_of_numbers)
+  result = []
+  for number in array_of_numbers
+    result.push(number) if(number.even?)
+  end
 
-# 7. Erik is one lottery number short! Add the number `7` to be included in his lottery numbers
+  return result
+end
 
-# 8. Change Erik's hometown to Edinburgh
-users[:"Erik"][:home] = "Edinburgh"
+array = users["Avril"][:lottery_numbers]
+evens = evil_even_numbers(array)
+
+p evens
+
+#7. Erik is one lottery number short! Add the number `7` to be included in his lottery numbers
+users.["Erik"][:lottery_numbers] << 7
+
+#8. Change Erik's hometown to Edinburgh
+users["Erik"][:home_town] = "Edinburgh"
 
 # 9. Add a pet dog to Erik called "Fluffy"
-meals["supper"] = "pancakes"
-p meals
 
-users["Erik"][:pets] = "Fluffy"
+pets_array = users["Erik][:pets]
+p pets_array
 
-users["Erik"][:species] = "dog"
+new_pet = {name: "Fluffy", species: "Dog"}
+
+pets_array.push(new_pet)
+
+p users["Erik"][:pets]
+
+# another option
+dog = {
+  :name => "fluffy",
+  :species => "dog"
+}
+
+users["Erik"][:pets] << dog
 
 # 10. Add another person to the users hash
+"Nadja" = {
+  :twitter => "hellothere"
+  :lottery_numbers =>
 
-users
+}

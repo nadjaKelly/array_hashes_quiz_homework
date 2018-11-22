@@ -8,6 +8,8 @@ stops.unshift("Glasgow Queen St") #.shift removes the first element in an array
 
 # 3. Add `"Polmont"` at the appropriate point (between `"Falkirk High"` and `"Linlithgow"`)
 stops[4] = "Polmont" #index must be set to future index number
+# teacher solution
+stops.insert(4, "Polmont")
 
 # 4. Work out the index position of `"Linlithgow"`
 stops.index("Linlithgow")
@@ -19,17 +21,21 @@ stops.delete("Livingston")
 stops.delete_at(2)
 
 # 7. How many stops there are in the array?
-stops.length #counts every element don't confuse with index number
+stops.length() #counts every element don't confuse with index number
+# teacher solution
+stops.size()
+stops.count()
 
 # 8. How many ways can we return `"Falkirk High"` from the array?
 stops[2]
 stops.[-5]
+# teacher solutions
+stops_at[2]
+stops_at[-5]
 
-# stops.include?("Falkirk High")
-# stops.index { |x| x == "Falkirk High"}
 
 # 9. Reverse the positions of the stops in the array
-stops.reverse!
+stops.reverse()
 
 # 10. Print out all the stops using a for loop
 for element in stops
